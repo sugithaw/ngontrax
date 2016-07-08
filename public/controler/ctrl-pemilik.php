@@ -1,4 +1,6 @@
 <?php
+    require ("../../extra/date-converter.php");
+
     class controler{
         //buat vaemail
         var $table_email;
@@ -25,11 +27,16 @@
         function add(){
             require($this->conn);
 
+            $date = new dateConverter();
+
             $nama_depan = $_POST['nama_depan'];
             $nama_belakang = $_POST['nama_belakang'];
             $no_identitas = $_POST['no_identitas'];
             $jk = $_POST['jk'];
-            $tgl_lahir = $_POST['tgl_lahir'];
+
+            $tgl_lahir_temp = $_POST['tgl_lahir'];
+            $tgl_lahir = $date->viewToDb($tgl_lahir_temp);
+
             $no_telp = $_POST['no_telp'];
             $email = $_POST['email'];
             $pass = $_POST['pass2'];
@@ -70,7 +77,7 @@
             echo "pa : ".$pass."<br>";
             echo "pc : ".$pics_name."<br>";
             
-            move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$no_identitas.'.'.$extractFile['extension']);
+            /*move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$no_identitas.'.'.$extractFile['extension']);
             /*$query = mysql_db_query($db,"INSERT INTO $this->table_name VALUES (NULL,'$id_prov' ,'$data')",$dbconn);
 
             if($query){
