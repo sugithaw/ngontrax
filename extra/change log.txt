@@ -1,0 +1,16 @@
+=== Update 7 Juli 2016 V2
+Menghilangkan id agama dan status kawin di table pemilik.
+
+=== Update 7 Juli 2016
+-Pengomtimalan koding di admin > data pendukung
+-Menghapus fungsi agama
+-Menampilkan data admin (Hanya menampilkan)
+
+=== Update 6 Juli 2016
+By : Budi Harta
+
+Pengubahan model dan controler untuk agama dan kategori menggunakan OOP supaya code nya lebih mudah untuk digunakan ulang.
+
+By : Saras
+
+Perbaikan struktur database.

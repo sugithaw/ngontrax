@@ -1,0 +1,6 @@
+==== View kota ====
+CREATE VIEW v_kota AS SELECT 
+	kota.id_kota,
+    	provinsi.provinsi,
+    	kota.kota
+FROM kota JOIN provinsi on kota.id_provinsi = provinsi.id_provinsi
