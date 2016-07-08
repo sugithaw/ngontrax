@@ -39,7 +39,7 @@
 
             $no_telp = $_POST['no_telp'];
             $email = $_POST['email'];
-            $pass = $_POST['pass2'];
+            $password = md5($_POST['pass2']);
 
             $pics = $_FILES['myfile']['name'];
     
@@ -67,7 +67,7 @@
                 }
             }
 
-            echo "nd : ".$nama_depan."<br>";
+            /*echo "nd : ".$nama_depan."<br>";
             echo "nb : ".$nama_belakang."<br>";
             echo "nid : ".$no_identitas."<br>";
             echo "jk : ".$jk."<br>";
@@ -75,17 +75,18 @@
             echo "nt : ".$no_telp."<br>";
             echo "em : ".$email."<br>";
             echo "pa : ".$pass."<br>";
-            echo "pc : ".$pics_name."<br>";
+            echo "pc : ".$pics_name."<br>";*/
             
-            /*move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$no_identitas.'.'.$extractFile['extension']);
-            /*$query = mysql_db_query($db,"INSERT INTO $this->table_name VALUES (NULL,'$id_prov' ,'$data')",$dbconn);
+            move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$no_identitas.'.'.$extractFile['extension']);
+
+            $query = mysql_db_query($db,"INSERT INTO $this->table_name VALUES (NULL, '$no_identitas', '$nama_depan', '$nama_belakang', '$jk', '$tgl_lahir', '$no_telp', '$email', '$password', '$pics_name', '1')",$dbconn);
 
             if($query){
                 //apabilsa query sukses maka akan di redirect ke sini
                 header("location:../view/$this->view_name?st=1");
             }else{
                 header("location:../view/$this->view_name?st=0");
-            }*/
+            }
         }
 
         function delete(){
@@ -125,7 +126,7 @@
     $controler = new controler(); // buat obj baru
     $controler->setTableIdentity("pemilik","id_pemilik");
     $controler->setConnection("../../setting/conn.php");
-    $controler->setViewHeader("data-pemilik.php");
+    $controler->setViewHeader("../login.php");
 
     $command = $_GET['command'];
 
