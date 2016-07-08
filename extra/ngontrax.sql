@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2016 at 09:18 AM
+-- Generation Time: Jul 08, 2016 at 04:58 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -43,27 +43,6 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_admin`, `nama_depan`, `nama_belakang`, `jk`, `no_telp`, `email`, `password`, `foto`) VALUES
 (1, 'Budi', 'Harta', 'L', '087861448382', 'budiharta_21@live.com', '21232f297a57a5a743894a0e4a801fc3', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `agama`
---
-
-CREATE TABLE `agama` (
-  `id_agama` int(2) NOT NULL,
-  `agama` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `agama`
---
-
-INSERT INTO `agama` (`id_agama`, `agama`) VALUES
-(12, 'Hindu'),
-(13, 'Islam'),
-(14, 'Budha'),
-(15, 'Kristen');
 
 -- --------------------------------------------------------
 
@@ -131,7 +110,10 @@ CREATE TABLE `fasilitas` (
 INSERT INTO `fasilitas` (`id_fasilitas`, `fasilitas`) VALUES
 (1, 'AC'),
 (2, 'Parkir'),
-(3, 'Kamar Mandi');
+(3, 'Kamar Mandi'),
+(4, 'Ruang tamu'),
+(5, 'Kolam renang'),
+(6, 'Bioskop Mini');
 
 -- --------------------------------------------------------
 
@@ -281,14 +263,20 @@ CREATE TABLE `pemilik` (
   `nama_belakang` varchar(20) NOT NULL,
   `jk` varchar(1) NOT NULL,
   `tgl_lahir` date NOT NULL,
-  `id_agama` int(2) NOT NULL,
-  `status_kawin` varchar(1) NOT NULL,
   `no_telp` varchar(12) NOT NULL,
   `email` text NOT NULL,
   `password` varchar(32) NOT NULL,
   `foto` varchar(14) NOT NULL,
   `confirmed` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pemilik`
+--
+
+INSERT INTO `pemilik` (`id_pemilik`, `no_identitas`, `nama_depan`, `nama_belakang`, `jk`, `tgl_lahir`, `no_telp`, `email`, `password`, `foto`, `confirmed`) VALUES
+(1, '1415323032', 'Ida Bagus', 'Budi Harta Guna', 'L', '1996-05-25', '087861448382', 'gus.budi1@gmail.com', '5e65b9a45578574102316bb9c4b32097', 'default.jpg', 1),
+(2, '123456789', 'agus', 'widnyana', 'L', '2016-07-21', '12345678911', 'gmail@nyaa.com', 'fdf169558242ee051cca1479770ebac3', 'default.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -480,12 +468,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `agama`
---
-ALTER TABLE `agama`
-  ADD PRIMARY KEY (`id_agama`);
-
---
 -- Indexes for table `anggota`
 --
 ALTER TABLE `anggota`
@@ -579,11 +561,6 @@ ALTER TABLE `tagihan_kos`
 ALTER TABLE `admin`
   MODIFY `id_admin` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `agama`
---
-ALTER TABLE `agama`
-  MODIFY `id_agama` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
@@ -592,7 +569,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_fasilitas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `favorit_kos`
 --
@@ -622,7 +599,7 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  MODIFY `id_pemilik` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemilik` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
