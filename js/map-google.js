@@ -13,8 +13,8 @@ function initMap() {
               lng: position.coords.longitude
             };
 
-            document.getElementById("lat").innerHTML = "lat : "+position.coords.latitude;
-            document.getElementById("lng").innerHTML = "lng : "+position.coords.longitude;
+            document.getElementById("lat").value = ""+position.coords.latitude;
+            document.getElementById("lng").value = ""+position.coords.longitude;
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Lokasi ditemukan.');
