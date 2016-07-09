@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2016 at 11:28 AM
+-- Generation Time: Jul 09, 2016 at 06:30 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -276,7 +276,10 @@ CREATE TABLE `pemilik` (
 
 INSERT INTO `pemilik` (`id_pemilik`, `no_identitas`, `nama_depan`, `nama_belakang`, `jk`, `tgl_lahir`, `no_telp`, `email`, `password`, `foto`, `confirmed`) VALUES
 (1, '1415323032', 'Ida Bagus', 'Budi Harta Guna', 'L', '1996-05-25', '087861448382', 'gus.budi1@gmail.com', '5e65b9a45578574102316bb9c4b32097', '1415323032.jpg', 1),
-(2, '123456789', 'agus', 'widnyana', 'L', '2016-07-21', '12345678911', 'gmail@nyaa.com', 'fdf169558242ee051cca1479770ebac3', 'default.jpg', 1);
+(2, '123456789', 'agus', 'widnyana', 'L', '2016-07-21', '12345678911', 'gmail@nyaa.com', 'fdf169558242ee051cca1479770ebac3', 'default.jpg', 1),
+(3, '123123', 'Ida Bagus', 'Heryana', 'L', '0000-00-00', '088971243', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', '123123.jpg', 1),
+(4, '5272836292', 'Ida bagus', 'Suparta', 'L', '2016-07-13', '646434', 'gus.suparta@gmail.com', '50027bd84095eb5010e916b3a97bd6f4', '5272836292.jpg', 1),
+(5, '5272836292', 'Ida ayu', 'Kade budarini', 'P', '2016-07-18', '6434619764', 'dayu@gmail.com', '3987f4d1031cc1a0e2cb11342ee154a6', '5272836292.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -390,7 +393,6 @@ CREATE TABLE `riwayat_kos` (
 
 CREATE TABLE `rumah_kos` (
   `id_rumah_kos` int(10) NOT NULL,
-  `id_kategori` int(2) NOT NULL,
   `id_pemilik` int(9) NOT NULL,
   `nama_rumah_kos` varchar(20) NOT NULL,
   `alamat` text NOT NULL,
@@ -398,11 +400,21 @@ CREATE TABLE `rumah_kos` (
   `jumlah_lantai` int(2) NOT NULL,
   `deskripsi` text NOT NULL,
   `id_kota` int(3) NOT NULL,
-  `x` varchar(11) NOT NULL,
-  `y` varchar(11) NOT NULL,
+  `x` text NOT NULL,
+  `y` text NOT NULL,
   `foto` varchar(15) NOT NULL,
   `video` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rumah_kos`
+--
+
+INSERT INTO `rumah_kos` (`id_rumah_kos`, `id_pemilik`, `nama_rumah_kos`, `alamat`, `luas`, `jumlah_lantai`, `deskripsi`, `id_kota`, `x`, `y`, `foto`, `video`) VALUES
+(4, 1, 'Sim', 'Usjdjsjsjd', 900, 2, 'Bsjskskwkek \r\nJzkskskskdk', 11, '115.2755206', '-8.6387513', '1-Sim.jpg', 'Jsjwjdkwdjks'),
+(5, 1, 'Surya', 'Jalan tonja', 500, 2, 'Kosnya masih baru lhoo', 11, '115.268756', '-8.6319189', '1-Surya.jpg', 'Hohoho'),
+(6, 5, 'Jepun', 'Jalan sekar jepun no 5', 600, 1, 'Khusus wanita', 11, '115.2721243', '-8.6359592', '5-Jepun.jpg', 'Sesesese'),
+(7, 5, 'Sandat', 'Jajskaksks', 1200, 3, 'Ndksksxnskdm', 11, '115.268756', '-8.6319189', '5-Sandat.jpg', 'Jajdbskshdsk');
 
 -- --------------------------------------------------------
 
@@ -599,7 +611,7 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  MODIFY `id_pemilik` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pemilik` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
@@ -619,7 +631,7 @@ ALTER TABLE `riwayat_kos`
 -- AUTO_INCREMENT for table `rumah_kos`
 --
 ALTER TABLE `rumah_kos`
-  MODIFY `id_rumah_kos` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rumah_kos` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tagihan_kontrakan`
 --
