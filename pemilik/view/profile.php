@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col l3 m12 s12">
                                     <div class="card-image">
-                                        <img class="materialboxed" src="../../pics/profile/pemilik/<?php echo $data[0]['foto'];?>">
+                                        <img class="materialboxed" src="../../pics/profile/pemilik/<?php echo $data[0]['foto'];?>" data-caption="<?php echo $data[0]['nama_depan']." ".$data[0]['nama_belakang']; ?>">
                                     </div>
                                 </div>
 
