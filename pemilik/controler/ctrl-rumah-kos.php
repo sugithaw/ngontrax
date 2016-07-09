@@ -43,7 +43,7 @@
             if($pics == ""){
                 $pics_name = "default.jpg";
             } else {
-                $uploadDir = "../../pics/bangunan/kos";
+                $uploadDir = "../../pics/bangunan/kos/";
                 // Apabila ada file yang di-upload
                 if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
                     $uploadFile = $_FILES['myfile'];
