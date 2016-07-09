@@ -22,7 +22,7 @@
 
                         <br><br>
 
-                        <form action="../controler/register-pemilik.php?command=add" method="post" enctype="multipart/form-data">
+                        <form action="../controler/ctrl-pemilik.php?command=add" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="input-field col l6 m10 s12">
                                     <input name="nama_depan" id="nama-depan" type="text" required>

@@ -83,17 +83,20 @@
 
             if($query){
                 //apabilsa query sukses maka akan di redirect ke sini
-                header("location:../view/$this->view_name?st=1");
+                header("location:../$this->view_name?st=1");
             }else{
-                header("location:../view/$this->view_name?st=0");
+                header("location:../$this->view_name?st=0");
             }
         }
+    }
+
+
 
     //bagian ngeset-ngeset isi dari objectnya
     $controler = new controler(); // buat obj baru
     $controler->setTableIdentity("pemilik","id_pemilik");
     $controler->setConnection("../../setting/conn.php");
-    $controler->setViewHeader("../login.php");
+    $controler->setViewHeader("index.php");
 
     $command = $_GET['command'];
 
