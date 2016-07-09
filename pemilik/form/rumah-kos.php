@@ -27,14 +27,6 @@
         
         <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../../js/materialize.js"></script>
-        
-        
-    
-        <style type="text/css">
-            #deploy-map{
-                height: 100%;
-            }
-        </style>
 
     </head>
     <body>    
@@ -48,7 +40,7 @@
                 <div class="col l8 m10 s12 offset-l2 offset-m1">
                     <div class="card">
                         <div class="card-content">
-                            <form action="#!" method="post"> <!-- pastikan form action bener -->
+                            <form action="../controler/ctrl-rumah-kos.php?command=<?php echo $command; ?>" method="post" enctype="multipart/form-data"> <!-- pastikan form action bener -->
                                 <div class="row">
                                     <div class="input-field col l6 m12 s12">
                                         <input type="text" name="nama" id="nama" required>
@@ -82,7 +74,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l6 m12 s12">
-                                        <select>
+                                        <select name="kota">
                                             <option value="" disabled selected>Pilih Kota</option>
                                             <?php
                                                 for ($i=0; $i < count($kota) ; $i++) { 
@@ -118,7 +110,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l12 m12 s12">
-                                        <textarea class="materialize-textarea" name="Video" id="Video"></textarea>
+                                        <textarea class="materialize-textarea" name="video" id="Video"></textarea>
                                         <label for="Video">Link Video</label>
                                     </div>
                                 </div>
@@ -126,8 +118,10 @@
                                     <div class="col l12 m12 s12">
                                         <div id="map" style="height:50%"></div>
                                         <div>
-                                            <p id="lat"></p>
-                                            <p id="lng"></p>
+                                            <!-- lat = y -->
+                                            <!-- lng = x -->
+                                            <input type="hidden" name="x" id="lng">
+                                            <input type="hidden" name="y" id="lat"> 
                                         </div>
                                     </div>
                                 </div>

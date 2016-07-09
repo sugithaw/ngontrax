@@ -1,6 +1,8 @@
 <!DOCTYPE>
 <?php
     $pagenow = "Asset Saya";
+
+    require '../model/mdl-kos.php';
 ?>
 
 <html>
@@ -24,6 +26,11 @@
         
         <div id="load-animation"></div>
         
+        <?php
+            $id = $_SESSION['id_pemilik'];
+            $data_kos = $model_kos->getData($id);
+        ?>
+
         <div class="row">
             <div class="col l8 m10 s12 offset-l2 offset-m1">
                 <div class="card">
@@ -32,9 +39,7 @@
                         <div class="divider"></div><br>
                         <p>Anda saat ini memiliki :</p>
                         <ul>
-                            <li>2 Bangunan Kos</li>
-                            <li>1 Villa</li>
-                            <li>2 Guest House</li>
+                            <li><?php echo count($data_kos); ?> Bangunan Kos</li>
                         </ul>
                     </div>
                 </div>
@@ -56,15 +61,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="truncate" style="max-width:100px"><a href="">Kos Indah Selamanya</a></td>
-                                                <td>10</td>
-                                                <td class="center">
-                                                    <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
-                                                    <a href="" class="red-text"><i class="material-icons">delete</i></a>
-                                                </td>
-                                            </tr>
+                                            <?php  for ($i=0; $i < count($data_kos); $i++) { ?>
+                                                <tr>
+                                                    <td><?php echo ($i+1); ?></td>
+                                                    <td class="truncate" style="max-width:100px"><a href=""><?php echo $data_kos[$i]['nama_rumah_kos']; ?></a></td>
+                                                    <td>10</td>
+                                                    <td class="center">
+                                                        <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
+                                                        <a href="" class="red-text"><i class="material-icons">delete</i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -132,6 +139,14 @@
             $(document).ready(function(){
                 $('.modal-trigger').leanModal();
             });
+
         </script>
+
+        <?php
+            if(isset($_GET['st'])){
+                $val = $_GET['st'];
+                echo "<script>toastMessage($val);</script>";
+            }
+        ?>
     </body>
 </html>

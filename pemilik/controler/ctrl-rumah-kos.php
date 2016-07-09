@@ -1,4 +1,5 @@
 <?php
+
     class controler{
         //buat vaiable
         var $table_name;
@@ -24,17 +25,60 @@
         
         function add(){
             require($this->conn);
+            session_start();
+            $id_pemilik = $_SESSION['id_pemilik'];
+            $nama = $_POST['nama'];
+            $luas = $_POST['luas'];
+            $jml_lantai = $_POST['jml_lantai'];
+            $prov = $_POST['prov'];
+            $kota = $_POST['kota'];
+            $alamat = $_POST['alamat'];
+            $deskripsi = $_POST['deskripsi'];
+            $video = $_POST['video'];
+            $x = $_POST['x'];
+            $y = $_POST['y'];
 
-            
+            $pics = $_FILES['myfile']['name'];
 
-            /*$query = mysql_db_query($db,"INSERT INTO $this->table_name VALUES (NULL, '$data')",$dbconn);
+            if($pics == ""){
+                $pics_name = "default.jpg";
+            } else {
+                $uploadDir = "../../pics/bangunan/kos";
+                // Apabila ada file yang di-upload
+                if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
+                    $uploadFile = $_FILES['myfile'];
+
+                    // Extract nama file
+                    $extractFile = pathinfo($uploadFile['name']);
+                    $size = $_FILES['myfile']['size']; //untuk mengetahui ukuran file
+                    $tipe = $_FILES['myfile']['type'];// untuk mengetahui tipe file
+
+                    //Dibawah ini adalah untuk mengatur format gambar yang dapat di upload ke server.
+                    $pics_name = $id_pemilik.'-'.$nama.'.'.$extractFile['extension'];
+
+                    $exts =array('image/jpg','image/jpeg','image/pjpeg','image/png','image/x-png');
+                    if(!in_array(($tipe),$exts)){
+                        echo 'Format file yang di izinkan hanya JPEG dan PNG';
+                        exit;
+                    }
+                }
+            }
+
+            $foto = $pics_name;
+
+            echo $id_pemilik;
+
+            move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$id_pemilik.'-'.$nama.'.'.$extractFile['extension']);
+
+            $str = "INSERT INTO $this->table_name VALUES (NULL, '$id_pemilik', '$nama', '$alamat', '$luas', '$jml_lantai', '$deskripsi', '$kota', '$x', '$y', '$foto', '$video')";
+            $query = mysql_db_query($db,$str,$dbconn);
 
             if($query){
                 //apabilsa query sukses maka akan di redirect ke sini
                 header("location:../view/$this->view_name?st=1");
             }else{
                 header("location:../view/$this->view_name?st=0");
-            }*/
+            }
         }
 
         function delete(){
@@ -59,8 +103,9 @@
             $data = $_POST['val']; // mngambil data kategory yang di kirim dari form
             
 
-            $query = mysql_db_query($db,"UPDATE $this->table_name SET fasilitas = '$data' WHERE $this->primary_key = $id",$dbconn); 
-            // perhatikan field yang di SET  di atas (karena di sini controler untuk kategory jadi field yang di set fasilitas) harus di rubah di sini
+
+            $query = mysql_db_query($db,"UPDATE $this->table_name SET rumah_kos = '$data' WHERE $this->primary_key = $id",$dbconn); 
+            // perhatikan field yang di SET  di atas (karena di sini controler untuk kategory jadi field yang di set rumah_kos) harus di rubah di sini
 
             if($query){
                 //apabilsa query sukses maka akan di redirect ke sini
@@ -73,9 +118,9 @@
 
     //bagian ngeset-ngeset isi dari objectnya
     $controler = new controler(); // buat obj baru
-    $controler->setTableIdentity("fasilitas","id_fasilitas");
+    $controler->setTableIdentity("rumah_kos","id_rumah_kos");
     $controler->setConnection("../../setting/conn.php");
-    $controler->setViewHeader("data-fasilitas.php");
+    $controler->setViewHeader("asset.php");
 
     $command = $_GET['command'];
 
