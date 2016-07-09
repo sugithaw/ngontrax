@@ -16,10 +16,6 @@
         <script type="text/javascript" src="../../js/materialize.js"></script>
         
         
-        <script type="text/javascript" src="../../js/jquery.smoothState.js"></script>
-        <script type="text/javascript" src="../../js/main.js"></script>
-        <link type="text/css" rel="stylesheet" href="../../css/keyframes.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="../../css/pageTransitions.css"  media="screen,projection"/>
     </head>
     <body>
         <?php include "../inc/header.php" ?>

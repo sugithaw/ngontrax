@@ -117,7 +117,7 @@
                 <p>Aset apa yang anda ingin tambahkan ?</p>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="btn-large blue left waves-effect waves-light">Kos</a>
+                <a href="../form/rumah-kos.php" class="btn-large blue left waves-effect waves-light">Kos</a>
                 <a href="#!" class="btn-large blue right waves-effect waves-light">Non Kos</a>
             </div>
         </div>
