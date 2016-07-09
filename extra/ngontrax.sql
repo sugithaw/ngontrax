@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2016 at 04:58 PM
+-- Generation Time: Jul 09, 2016 at 11:28 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -275,7 +275,7 @@ CREATE TABLE `pemilik` (
 --
 
 INSERT INTO `pemilik` (`id_pemilik`, `no_identitas`, `nama_depan`, `nama_belakang`, `jk`, `tgl_lahir`, `no_telp`, `email`, `password`, `foto`, `confirmed`) VALUES
-(1, '1415323032', 'Ida Bagus', 'Budi Harta Guna', 'L', '1996-05-25', '087861448382', 'gus.budi1@gmail.com', '5e65b9a45578574102316bb9c4b32097', 'default.jpg', 1),
+(1, '1415323032', 'Ida Bagus', 'Budi Harta Guna', 'L', '1996-05-25', '087861448382', 'gus.budi1@gmail.com', '5e65b9a45578574102316bb9c4b32097', '1415323032.jpg', 1),
 (2, '123456789', 'agus', 'widnyana', 'L', '2016-07-21', '12345678911', 'gmail@nyaa.com', 'fdf169558242ee051cca1479770ebac3', 'default.jpg', 1);
 
 -- --------------------------------------------------------
