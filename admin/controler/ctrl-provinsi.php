@@ -21,7 +21,6 @@
         function setViewHeader($value){
             $this->view_name = $value;
         }
-        
         function add(){
             require($this->conn);
 
