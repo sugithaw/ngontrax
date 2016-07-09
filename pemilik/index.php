@@ -24,15 +24,18 @@
                         <br>
                         <form action="controler/ctrl-login.php" method="post">
                             <div class="input-field">
-                                <input type="text" name="username" id="username">
+                                <input type="text" name="username" id="username" required>
                                 <label for="username"><i class="material-icons">account_circle</i></label>
                             </div>
                             <div class="input-field">
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="password" id="password" required>
                                 <label for="password"><i class="material-icons">vpn_key</i></label>
                             </div>
                             <div class="input-field">
-                                <input class="btn-large blue" type="submit" value="Masuk" style="width:100%;">
+                                <button class="btn blue waves-effect waves-light" type="submit" name="action" style="height:4em; width:100%">
+                                    Masuk
+                                    <i class="material-icons right">send</i>
+                                </button>
                             </div>
                         </form>
                         <div class="divider"></div>

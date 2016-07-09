@@ -21,12 +21,12 @@
                         <br>
                         <div class="row">
                             <div class="col l12 m12 s12">
-                                <a href="../pemilik/index.php" class="btn-large blue" style="width:100%">Pemilik</a>
+                                <a href="../pemilik/index.php" class="btn-large blue waves-effect waves-light" style="width:100%">Pemilik</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col l12 m12 s12">
-                                <a href="" class="btn-large blue" style="width:100%">Pengguna</a>
+                                <a href="" class="btn-large blue waves-effect waves-light" style="width:100%">Pengguna</a>
                             </div>
                         </div>
                         

@@ -10,7 +10,7 @@
             <li><a href="#">Hi, <?php echo $_SESSION['user'] ?></a></li>
             <li class="divider"></li>
             <li><a href="../view/dashboard.php">Dashboard</a></li>
-            <li><a href="../view/dashboard.php">Profil saya</a></li>
+            <li><a href="../view/profile.php">Profil saya</a></li>
             
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">

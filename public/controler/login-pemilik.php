@@ -9,9 +9,9 @@
 
     if(mysql_num_rows($query)>0){
         $rsData = mysql_fetch_array($query);
-        $_SESSION['user'] = $rsData['nama_belakang'];
-        $_SESSION['id_pemilik'] = $rsData['id_pemilik'];
-        header("location:../view/dashboard.php");
+        $_SESSION['user'] = $rsData['nama_depan'];
+        $_SESSION['id_admin'] = $rsData['1'];
+        header("location:../../pemilik/index.php");
     }else{
         header("location:../index.php");
     }
