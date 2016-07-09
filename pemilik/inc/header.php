@@ -11,21 +11,7 @@
             <li class="divider"></li>
             <li><a href="../view/dashboard.php">Dashboard</a></li>
             <li><a href="../view/profile.php">Profil saya</a></li>
-            
-            <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header">Asset saya</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="#!">Kost</a></li>
-                                <li><a href="#!">Non-Kost</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            
+            <li><a href="../view/asset.php">Asset saya</a></li>
             <li><a href="#!">Laporan</a></li>
             <li class="divider"></li>
             <li><a href="../controler/ctrl-logout.php">Log out</a></li>
