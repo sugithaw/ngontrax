@@ -89,39 +89,6 @@
             }
         }
 
-        function delete(){
-            require($this->conn);
-
-            $id = $_GET['id'];
-
-            $query = mysql_db_query($db,"DELETE FROM $this->table_name WHERE $this->primary_key = $id",$dbconn);
-
-            if($query){
-                //apabilsa query sukses maka akan di redirect ke sini
-                header("location:../view/$this->view_name?st=1");
-            }else{
-                header("location:../view/$this->view_name?st=0");
-            }
-        }
-        
-        function edit(){
-            require($this->conn);
-
-            $id = $_POST['id']; // mengambiil id dari form yang di hiden
-            $data = $_POST['val']; // mngambil data kategory yang di kirim dari form
-
-            $query = mysql_db_query($db,"UPDATE $this->table_name SET pemilik = '$data' WHERE $this->primary_key = $id",$dbconn); 
-            // perhatikan field yang di SET  di atas (karena di sini controler untuk kategory jadi field yang di set pemilik) harus di rubah di sini
-
-            if($query){
-                //apabilsa query sukses maka akan di redirect ke sini
-                header("location:../view/$this->view_name?st=1");
-            }else{
-                header("location:../view/$this->view_name?st=0");
-            }
-        }
-    }
-
     //bagian ngeset-ngeset isi dari objectnya
     $controler = new controler(); // buat obj baru
     $controler->setTableIdentity("pemilik","id_pemilik");

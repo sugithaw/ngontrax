@@ -4,16 +4,21 @@
         <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script type="text/javascript" src="../js/materialize.js"></script>
     </head>
     
     <body class="container">
+        <div id="load-animation"></div>
         <div class="row">
             <div class="col l4 m6 s12 offset-l4 offset-m3">
                 <div>
                     <div class="card-content">
                         <br>
-                        <center><img src="../pics/sys/logo-64.png"></center>
+                        <center>
+                            <a href="../public/index.php"><img src="../pics/sys/logo-64.png"></a>
+                            <p class="blue-text">Masuk sebagai pemilik</p>
+                        </center>
+                        <div class="divider"></div>
                         <br>
                         <br>
                         <br>
@@ -27,16 +32,11 @@
                                 <label for="password"><i class="material-icons">vpn_key</i></label>
                             </div>
                             <div class="input-field">
-                                <input class="btn blue" type="submit" value="Masuk" style="width:100%; height: 4em">
+                                <input class="btn-large blue" type="submit" value="Masuk" style="width:100%;">
                             </div>
                         </form>
                         <div class="divider"></div>
-                        <div class="">
-                            <a href="wellcome-splash.php" class="left green-text">Daftar menjadi anggota</a>
-                            <span class="blue-text">|</span>
-                            <a href="" class="right red-text">Bantuan masuk</a>
-                        </div>
-                        <div class="divider"></div>
+                        <a href="" class="right red-text">Bantuan masuk</a>
                     </div>
                 </div>
             </div>
