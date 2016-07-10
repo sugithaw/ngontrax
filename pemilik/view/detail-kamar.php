@@ -58,20 +58,63 @@
                             </div>
                         </div>
                         <div class="card-action right-align">
-                            <a href="#!" class="btn blue">Buat tagihan</a>
+                            <a href="#!" class="btn blue" disabled>Buat tagihan</a>
                             <a href="#!" class="btn blue">Hubungkan Penghuni</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        <div class="row">
-            <div class="col l8 m10 s12 offset-l2 offset-m1">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-title center">Tidak Ada Penghuni Saat Ini</div>
+            
+                <div class="col col l8 m10 s12 offset-l2 offset-m1">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                        <div class="collapsible-header">Lihat Detail Kos</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col l12 m12 s12">
+                                    <table class="highlight">
+                                        <tr>
+                                            <td>No Kamar</td>
+                                            <td><?php echo $data_kamar['no_kamar'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Luas</td>
+                                            <td><?php echo $data_kamar['luas'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Harga</td>
+                                            <td><?php echo $data_kamar['harga'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Air</td>
+                                            <td><?php echo $data_kamar['air'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Listrik</td>
+                                            <td><?php echo $data_kamar['listrik'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Keterangan</td>
+                                            <td><?php echo $data_kamar['keterangan'] ?></td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <div class="right">
+                                        <a href="" class="btn blue">Lihat Video</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                     </ul>
+                 </div>
+        
+                <div class="col l8 m10 s12 offset-l2 offset-m1">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-title center">Tidak Ada Penghuni Saat Ini</div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </body>
 </html>

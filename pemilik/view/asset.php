@@ -3,6 +3,7 @@
     $pagenow = "Asset Saya";
 
     require '../model/mdl-kos.php';
+    require '../model/mdl-non-kos.php';
 ?>
 
 <html>
@@ -23,6 +24,7 @@
         <?php
             $id = $_SESSION['id_pemilik'];
             $data_kos = $model_kos->getData($id);
+            $data_non_kos = $model_non_kos->getData($id);
         ?>
 
         <div class="row">
@@ -34,6 +36,7 @@
                         <p>Anda saat ini memiliki :</p>
                         <ul>
                             <li><?php echo count($data_kos); ?> Bangunan Kos</li>
+                            <li><?php echo count($data_non_kos); ?> Bangunan Selain Kos</li>
                         </ul>
                     </div>
                 </div>
@@ -82,20 +85,22 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Jml Kamar</th>
+                                                <th>Penghuni</th>
                                                 <th class="center">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="truncate" style="max-width:100px"><a href="">Kos Indah Selamanya</a></td>
-                                                <td>10</td>
-                                                <td class="center">
-                                                    <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
-                                                    <a href="" class="red-text"><i class="material-icons">delete</i></a>
-                                                </td>
-                                            </tr>
+                                            <?php  for ($i=0; $i < count($data_non_kos); $i++) { ?>
+                                                <tr>
+                                                    <td><?php echo ($i+1); ?></td>
+                                                    <td class="truncate" style="max-width:100px"><a href="detail-non-kos.php?id_kontrakan=<?php echo $data_non_kos[$i]['id_kontrakan']; ?>"><?php echo $data_non_kos[$i]['nama_kontrakan']; ?></a></td>
+                                                    <td>N</td>
+                                                    <td class="center">
+                                                        <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
+                                                        <a href="" class="red-text"><i class="material-icons">delete</i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -119,7 +124,7 @@
             </div>
             <div class="modal-footer">
                 <a href="../form/rumah-kos.php" class="btn-large blue left waves-effect waves-light">Kos</a>
-                <a href="#!" class="btn-large blue right waves-effect waves-light">Non Kos</a>
+                <a href="../form/non-kos.php" class="btn-large blue right waves-effect waves-light">Non Kos</a>
             </div>
         </div>
 
