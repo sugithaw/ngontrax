@@ -116,7 +116,7 @@
                                     </table>
                                     <br>
                                     <div class="right">
-	                                    <a href="" class="btn blue">Tampilkan Lokasi</a>
+	                                    <a href="#modal" class="btn blue modal-trigger">Tampilkan Lokasi</a>
 	                                    <a href="" class="btn blue">Lihat Video</a>
                                 	</div>
                                 </div>
@@ -125,6 +125,15 @@
                     </li>
 	                 </ul>
                  </div>
+
+                 <div class="col col l8 m10 s12 offset-l2 offset-m1">
+                    <div class="card">
+                        <div class="card-content">
+                            <div id="map" style="height:40%"></div>
+                        </div>
+                    </div>
+                 </div>
+
                  <div class="col col l8 m10 s12 offset-l2 offset-m1">
                 	<div class="card">
                 		<div class="card-content">
@@ -175,6 +184,29 @@
         			accordion : false
         		});
         	});
+
+            var map;
+        function initMap() {
+
+            <?php
+                $x = $data[0]['x'];
+                $y = $data[0]['y'];
+            ?>
+            var myLatLng = {lat: <?php echo $y; ?>, lng: <?php echo $x; ?>};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: '<?php echo $data[0]['nama_rumah_kos'] ?>'
+            });
+        }
         </script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwCRz59NQ-6mcCYNSZhe2i2XRGxTxbS7U&callback=initMap"></script>
     </body>
 </html>
