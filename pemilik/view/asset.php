@@ -58,7 +58,7 @@
                                             <?php  for ($i=0; $i < count($data_kos); $i++) { ?>
                                                 <tr>
                                                     <td><?php echo ($i+1); ?></td>
-                                                    <td class="truncate" style="max-width:100px"><a href=""><?php echo $data_kos[$i]['nama_rumah_kos']; ?></a></td>
+                                                    <td class="truncate" style="max-width:100px"><a href="detail-kos.php?id_kos=<?php echo $data_kos[$i]['id']; ?>"><?php echo $data_kos[$i]['nama_rumah_kos']; ?></a></td>
                                                     <td>10</td>
                                                     <td class="center">
                                                         <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>

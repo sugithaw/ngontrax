@@ -46,17 +46,25 @@
             }
         }
 
-        function getSearchData($val){
+        function getSingleData($val){
             require($this->conn);
 
-            $query = mysql_db_query($db,"SELECT * FROM $this->table_name WHERE $this->primary_key = '$val' OR rumah_kos LIKE '%$val%'",$dbconn);
-            //perhatikan juga bagian di atas ini, isi field secondary (setelah blok "OR" ) untuk membantu pencarian  
+            $query = mysql_db_query($db,"SELECT * FROM $this->table_name WHERE $this->primary_key = $val",$dbconn);
 
             $index = 0;
 
             while($rsData = mysql_fetch_array($query)){
                $data[$index]['id'] = $rsData['id_rumah_kos'];
-               $data[$index]['rumah_kos'] = ucwords($rsData['rumah_kos']);
+               $data[$index]['nama_rumah_kos'] = ucwords($rsData['nama_rumah_kos']);
+               $data[$index]['alamat'] = ucwords($rsData['alamat']);
+               $data[$index]['luas'] = ucwords($rsData['luas']);
+               $data[$index]['jumlah_lantai'] = ucwords($rsData['jumlah_lantai']);
+               $data[$index]['deskripsi'] = ucwords($rsData['deskripsi']);
+               $data[$index]['kota'] = $rsData['id_kota'];
+               $data[$index]['x'] = $rsData['x'];
+               $data[$index]['y'] = $rsData['y'];
+               $data[$index]['foto'] = $rsData['foto'];
+               $data[$index]['video'] = $rsData['video'];
 
                 $index++;
             }
