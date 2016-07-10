@@ -18,7 +18,11 @@
     <body>
         <?php include "../inc/header.php" ?>
         
-        <div id="load-animation"></div>
+        <div id="load-animation">
+            <div class="blue progress" style="top:9%">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
         
         <?php
             $id_kos = $_GET['id_kos'];
