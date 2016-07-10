@@ -2,12 +2,12 @@
 <?php
     if(isset($_GET['edit'])){
         $editMode = true;
-        $pagenow = "Edit Rumah Kos";
+        $pagenow = "Edit Kamar Kos";
         $id = $_GET['id'];
         $command = "edit";
     } else {
         $editMode = false;
-        $pagenow = "Tambah Rumah Kos";
+        $pagenow = "Edit Rumah Kos";
         $command = "add";
     }
 
@@ -40,11 +40,12 @@
                 <div class="col l8 m10 s12 offset-l2 offset-m1">
                     <div class="card">
                         <div class="card-content">
-                            <form action="../controler/ctrl-rumah-kos.php?command=<?php echo $command; ?>" method="post" enctype="multipart/form-data"> <!-- pastikan form action bener -->
+                            <form action="../controler/ctrl-kamar.php?command=<?php echo $command; ?>" method="post" enctype="multipart/form-data"> <!-- pastikan form action bener -->
                                 <div class="row">
                                     <div class="input-field col l6 m12 s12">
-                                        <input type="text" name="nama" id="nama" required>
-                                        <label for="nama">Nama</label>
+                                        <input type="hidden" name="id_rumah" id="id_rumah" value="<?php echo $_GET['id_rumah'] ?>">
+                                        <input type="text" name="no_kamar" id="no_kamar" required>
+                                        <label for="no_kamar">No Kamar</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -55,46 +56,26 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l3 m4 s4">
-                                        <input type="text" name="jml_lantai" id="jml_lantai" required>
-                                        <label for="jml_lantai">Jml Lantai</label>
+                                        <input type="text" name="harga" id="harga" required>
+                                        <label for="harga">Harga</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l6 m12 s12">
-                                        <select id="prov" name="prov">
-                                            <option value="" disabled selected>Pilih Provinsi</option>
-                                            <?php
-                                                for ($i=0; $i < count($prov) ; $i++) { 
-                                                    echo "<option value='".$prov[$i]['id']."'>".$prov[$i]['provinsi']."</option>";
-                                                }
-                                            ?>
+                                        <select id="air" name="air">
+                                            <option value="" disabled selected>Sumber Air</option>
+                                            <option value="PAM">PAM</option>
+                                            <option value="Sumur Gali">Sumur Gali</option>
+                                            <option value="Sumur Bor">Sumur Bor</option>
+                                            <option value="Lainya">Lainya</option>
                                         </select>
                                         <label>Provinsi</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l6 m12 s12">
-                                        <select name="kota">
-                                            <option value="" disabled selected>Pilih Kota</option>
-                                            <?php
-                                                for ($i=0; $i < count($kota) ; $i++) { 
-                                                    echo "<option value='".$kota[$i]['id']."'>".$kota[$i]['kota']."</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                        <label>Kota</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col l12 m12 s12">
-                                        <textarea class="materialize-textarea" name="alamat" id="alamat"></textarea>
-                                        <label for="alamat">Alamat</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col l12 m12 s12">
-                                        <textarea class="materialize-textarea" name="deskripsi" id="deskripsi"></textarea>
-                                        <label for="deskripsi">Deskripsi</label>
+                                        <input type="text" name="listrik">
+                                        <label for="listrik">Listrik (Kwh)</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -110,19 +91,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col l12 m12 s12">
-                                        <textarea class="materialize-textarea" name="video" id="Video"></textarea>
-                                        <label for="Video">Link Video</label>
+                                        <textarea class="materialize-textarea" name="keterangan" id="keterangan"></textarea>
+                                        <label for="keterangan">Keterangan</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col l12 m12 s12">
-                                        <div id="map" style="height:50%"></div>
-                                        <div>
-                                            <!-- lat = y -->
-                                            <!-- lng = x -->
-                                            <input type="hidden" name="x" id="lng">
-                                            <input type="hidden" name="y" id="lat"> 
-                                        </div>
+                                    <div class="input-field col l12 m12 s12">
+                                        <textarea class="materialize-textarea" name="video" id="Video"></textarea>
+                                        <label for="Video">Link Video</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -143,11 +119,6 @@
                 $('select').material_select();
             });
         </script>
-
-        <script type="text/javascript" src="../../js/map-google.js"></script>
-
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwCRz59NQ-6mcCYNSZhe2i2XRGxTxbS7U&callback=initMap"></script>
-
 
     </body>
 </html>

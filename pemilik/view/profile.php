@@ -3,6 +3,7 @@
     $pagenow = "Profil Saya";
 
     require ("../model/mdl-pemilik.php");
+    
 ?>
 
 <html>
@@ -20,6 +21,12 @@
     <body>
         <?php include "../inc/header.php" ?>
         
+        <?php
+            require '../model/mdl-kos.php';
+            $id = $_SESSION['id_pemilik'];
+            $data_kos = $model_kos->getData($id);
+        ?>
+
         <div id="load-animation"></div>
         <?php
             $id = $_SESSION['id_pemilik'];
@@ -49,11 +56,11 @@
                                         </tr>
                                         <tr>
                                             <td>Kos</td>
-                                            <td>2</td>
+                                            <td><?php echo count($data_kos);?></td>
                                         </tr>
                                         <tr>
                                             <td>Non Kos</td>
-                                            <td>5</td>
+                                            <td>X</td>
                                         </tr>
                                     </table>
                                 </div>

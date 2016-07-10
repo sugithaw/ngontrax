@@ -3,6 +3,7 @@
     $pagenow = "Detail Kos";
 
     require '../model/mdl-kos.php';
+    require '../model/mdl-kamar.php';
 ?>
 
 <html>
@@ -27,6 +28,8 @@
         <?php
             $id_kos = $_GET['id_kos'];
             $data = $model_kos->getSingleData($id_kos);
+
+            $data_kamar = $model_kamar->getData($id_kos);
         ?>
 
         <?php
@@ -66,11 +69,11 @@
                                             <td><strong><?php echo $data[0]['nama_rumah_kos']; ?></strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Kos</td>
-                                            <td>2</td>
+                                            <td>Jml Kamar</td>
+                                            <td><?php echo count($data_kamar); ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Non Kos</td>
+                                            <td>Dihuni</td>
                                             <td>5</td>
                                         </tr>
                                     </table>
@@ -80,7 +83,7 @@
 
 
                         <div class="card-action right-align">
-                            <a href="#!" class="btn-large blue waves-effect waves-light"><span><i class="material-icons left">mode_edit</i></span>Edit Profil Kos</a>
+                            <a href="" class="btn-large blue waves-effect waves-light"><span><i class="material-icons left">mode_edit</i></span>Edit Profil Kos</a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +123,6 @@
                                     </table>
                                     <br>
                                     <div class="right">
-	                                    <a href="#modal" class="btn blue modal-trigger">Tampilkan Lokasi</a>
 	                                    <a href="" class="btn blue">Lihat Video</a>
                                 	</div>
                                 </div>
@@ -153,15 +155,19 @@
                 					</tr>
                 				</thead>
                 				<tbody>
-                					<tr>
-                						<td>1</td>
-                						<td>Nama-1</td>
+                					<?php for ($i=0; $i < count($data_kamar); $i++) { 
+                                        $nama = $data[0]['nama_rumah_kos']."-".$data_kamar[$i]['no_kamar'];
+                                    ?>
+                                    <tr>
+                						<td><?php echo ($i+1);?></td>
+                						<td><a href="detail-kamar.php?id_kamar=<?php echo $data_kamar[$i]['id']; ?>"><?php echo $nama; ?></a></td>
                 						<td class="center">Y</td>
                 						<td class="center">
                                             <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
                                             <a href="" class="red-text"><i class="material-icons">delete</i></a>
                                         </td>
                 					</tr>
+                                    <?php } ?>
                 				</tbody>
                 			</table>
                 		</div>
@@ -172,7 +178,7 @@
             </div>
 
             <div class="fixed-action-btn" style="bottom: 20px; right: 20px;">
-            	<a href="#!" class="btn-floating btn-large blue waves-effect waves-light modal-trigger"><i class="large material-icons"><i class="material-icons">add</i></i></a> <!-- pastikan link ini bener -->
+            	<a href="../form/kamar-kos.php?id_rumah=<?php echo $data[0]['id'] ?>" class="btn-floating btn-large blue waves-effect waves-light modal-trigger"><i class="large material-icons"><i class="material-icons">add</i></i></a> <!-- pastikan link ini bener -->
             </div>
 
         <?php
