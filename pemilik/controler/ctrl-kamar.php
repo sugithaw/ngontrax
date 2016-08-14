@@ -37,8 +37,10 @@
 
             $pics = $_FILES['myfile']['name'];
 
+            echo $pics;
+
             if($pics == ""){
-                $pics_name = "default.jpg";
+                $pics_name = "default.png";
             } else {
                 $uploadDir = "../../pics/bangunan/kos/";
                 // Apabila ada file yang di-upload
@@ -59,13 +61,12 @@
                         exit;
                     }
                 }
+                move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$id_rumah.'-'.$no_kamar.'.'.$extractFile['extension']);
             }
 
             $foto = $pics_name;
 
-            move_uploaded_file($uploadFile['tmp_name'],$uploadDir.$id_rumah.'-'.$no_kamar.'.'.$extractFile['extension']);
-
-            $str = "INSERT INTO $this->table_name VALUES (NULL, '$id_rumah', '$no_kamar', '$luas', '$harga', '$air', '$listrik', '$foto', '$video', '$keterangan')";
+            $str = "INSERT INTO kamar_kos VALUES (NULL, '$id_rumah', '$no_kamar', '$luas', '$harga', '$air', '$listrik', '$foto', '$video', '$keterangan') ";
             $query = mysql_db_query($db,$str,$dbconn);
 
             if($query){

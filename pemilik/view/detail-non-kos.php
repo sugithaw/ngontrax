@@ -29,6 +29,7 @@
             $data = $model_non_kos->getSingleData($id_kontrakan);
         ?>
 
+
         <?php
             if(!$data){ 
             echo "
@@ -51,7 +52,7 @@
                             <div class="row">
                                 <div class="col l3 m12 s12">
                                     <div class="card-image">
-                                        <img class="materialboxed" src="../../pics/bangunan/non-kos/<?php echo $data[0]['foto'];?>">
+                                        <img class="materialboxed" src="../../pics/bangunan/non-kos/<?php echo $data['foto'];?>">
                                     </div>
                                 </div>
 

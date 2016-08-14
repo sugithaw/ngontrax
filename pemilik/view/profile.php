@@ -23,8 +23,12 @@
         
         <?php
             require '../model/mdl-kos.php';
+            require '../model/mdl-non-kos.php';
+
             $id = $_SESSION['id_pemilik'];
             $data_kos = $model_kos->getData($id);
+            $data_non_kos = $model_non_kos->getData($id);
+
         ?>
 
         <div id="load-animation"></div>
@@ -60,7 +64,7 @@
                                         </tr>
                                         <tr>
                                             <td>Non Kos</td>
-                                            <td>X</td>
+                                            <td><?php echo count($data_non_kos);?></td>
                                         </tr>
                                     </table>
                                 </div>

@@ -4,6 +4,7 @@
 
     require '../model/mdl-kos.php';
     require '../model/mdl-non-kos.php';
+    require '../model/mdl-kamar.php';
 ?>
 
 <html>
@@ -25,6 +26,12 @@
             $id = $_SESSION['id_pemilik'];
             $data_kos = $model_kos->getData($id);
             $data_non_kos = $model_non_kos->getData($id);
+
+            for($i=0; $i<count($data_kos); $i++){
+                $id_rumah = $data_kos[$i]['id'];
+                $jml_kamar[$i] = $model_kamar->getData($id_rumah);
+            }
+
         ?>
 
         <div class="row">
@@ -62,7 +69,7 @@
                                                 <tr>
                                                     <td><?php echo ($i+1); ?></td>
                                                     <td class="truncate" style="max-width:100px"><a href="detail-kos.php?id_kos=<?php echo $data_kos[$i]['id']; ?>"><?php echo $data_kos[$i]['nama_rumah_kos']; ?></a></td>
-                                                    <td>10</td>
+                                                    <td><?php echo count($jml_kamar[$i]) ?></td>
                                                     <td class="center">
                                                         <a href="" class="blue-text"><i class="material-icons">mode_edit</i></a>
                                                         <a href="" class="red-text"><i class="material-icons">delete</i></a>

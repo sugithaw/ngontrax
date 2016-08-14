@@ -27,7 +27,7 @@
 
             while($rsData = mysql_fetch_array($query)){
                $data[$index]['id'] = $rsData['id_kamar'];
-               $data[$index]['no_kamar'] = ucwords($rsData['no_kamar_kos']);
+               $data[$index]['no_kamar'] = ucwords($rsData['no_kmr_kos']);
                $data[$index]['luas'] = $rsData['luas'];
                $data[$index]['harga'] = $rsData['harga'];
                $data[$index]['air'] = $rsData['air'];
@@ -53,7 +53,7 @@
 
             while($rsData = mysql_fetch_array($query)){
                $data['id'] = $rsData['id_kamar'];
-               $data['no_kamar'] = ucwords($rsData['no_kamar_kos']);
+               $data['no_kamar'] = ucwords($rsData['no_kmr_kos']);
                $data['luas'] = $rsData['luas'];
                $data['harga'] = $rsData['harga'];
                $data['air'] = $rsData['air'];
