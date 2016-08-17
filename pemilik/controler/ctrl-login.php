@@ -11,6 +11,7 @@
         $rsData = mysql_fetch_array($query);
         $_SESSION['user'] = $rsData['nama_belakang'];
         $_SESSION['id_pemilik'] = $rsData['id_pemilik'];
+        $_SESSION['foto'] = $rsData['foto'];
         header("location:../view/dashboard.php");
     }else{
         header("location:../index.php");

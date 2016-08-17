@@ -219,6 +219,7 @@
                 title: '<?php echo $data[0]['nama_rumah_kos'] ?>'
             });
         }
+
         </script>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwCRz59NQ-6mcCYNSZhe2i2XRGxTxbS7U&callback=initMap"></script>

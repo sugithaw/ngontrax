@@ -7,8 +7,14 @@
             <li id="title-text" class="brand-logo center" style="display:none;"><?php echo $pagenow ?></li>
         </ul>
         <ul id="slide-out" class="side-nav">
-            <li><a href="#">Hi, <?php echo $_SESSION['user'] ?></a></li>
-            <li class="divider"></li>
+            <li>
+                <div class="userView">
+                    <img class="background" src="../../pics/sys/side-back.jpg">
+                    <a href="#!user"><img class="circle" src="../../pics/profile/pemilik/<?php echo $_SESSION['foto'] ?>"></a>
+                    <a href="#!name"><span class="white-text name">Hi, <?php echo $_SESSION['user'] ?></span></a>
+                    <a href="#!email"><span class="white-text email">ID :  <?php echo $_SESSION['id_pemilik'] ?></span></a>
+                </div>
+            </li>
             <li><a href="../view/dashboard.php">Dashboard</a></li>
             <li><a href="../view/profile.php">Profil saya</a></li>
             <li><a href="../view/asset.php">Asset saya</a></li>
@@ -24,7 +30,7 @@
     
 <script>
     $('.button-collapse').sideNav({
-      menuWidth: 240,
+      menuWidth: 300,
       closeOnClick: true
     }
   );
