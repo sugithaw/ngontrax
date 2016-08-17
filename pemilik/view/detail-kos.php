@@ -15,6 +15,9 @@
         
         <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../../js/materialize.js"></script>
+
+        <script type="text/javascript" src="../../js/load.js"></script>
+        <link type="text/css" rel="stylesheet" href="../../css/load.css"/>
     </head>
     <body>
         <?php include "../inc/header.php" ?>
