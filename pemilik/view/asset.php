@@ -51,7 +51,7 @@
             <div class="col l8 m10 s12 offset-l2 offset-m1">
                 <ul class="collapsible popout" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">business</i>Data Kos</div>
+                        <div class="collapsible-header blue darken-2 white-text"><i class="material-icons">business</i>Data Kos</div>
                         <div class="collapsible-body">
                             <div class="row">
                                 <div class="col l12 m12 s12">
@@ -83,7 +83,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">home</i>Data Non Kos</div>
+                        <div class="collapsible-header teal darken-2 white-text"><i class="material-icons">home</i>Data Non Kos</div>
                         <div class="collapsible-body">
                             <div class="row">
                                 <div class="col l12 m12 s12">

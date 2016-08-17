@@ -83,7 +83,8 @@
 
 
                         <div class="card-action right-align">
-                            <a href="" class="btn-large blue waves-effect waves-light"><span><i class="material-icons left">mode_edit</i></span>Edit Profil Kos</a>
+                            <a href="" class="btn-large blue waves-effect waves-light"><i class="material-icons left">mode_edit</i></a>
+                            <a href="" class="btn-large blue waves-effect waves-light">Iklankan</a>
                         </div>
                     </div>
                 </div>
@@ -91,11 +92,11 @@
                 <div class="col col l8 m10 s12 offset-l2 offset-m1">
 	                <ul class="collapsible" data-collapsible="accordion">
 	                	<li>
-                        <div class="collapsible-header">Lihat Detail Kos</div>
+                        <div class="collapsible-header blue white-text">Lihat Detail Kos</div>
                         <div class="collapsible-body">
                             <div class="row">
                                 <div class="col l12 m12 s12">
-                                    <table class="highlight">
+                                    <table class="striped">
                                         <tr>
                                             <td>ID</td>
                                             <td><?php echo $data[0]['id'] ?></td>
@@ -145,7 +146,7 @@
                 		<div class="card-content">
                 			<div class="card-title">Data Kamar</div>
                 			<div class="divider"></div>
-                			<table>
+                			<table class="striped">
                 				<thead>
                 					<tr>
                 						<th>No</th>
